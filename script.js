@@ -1,6 +1,5 @@
-let canvasSize = 20;
+let canvasSize = 16;
 document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
-
 for (let i=0; i<(canvasSize**2); i++) { // adds a div to the grid
     const cell = document.createElement('div');
     cell.classList.add('cell');
@@ -23,6 +22,9 @@ function resetCanvas () {
             const cell = document.createElement('div');
             cell.classList.add('cell');
             document.querySelector('.container').appendChild(cell);
+            document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
         }
     }
 }
+const reset = document.querySelector('.btn');
+btn.addEventListener('click', resetCanvas);
