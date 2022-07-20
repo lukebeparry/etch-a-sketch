@@ -13,5 +13,16 @@ draw.forEach((draw) => { //applies function to each node in list
     });
 });
 function resetCanvas () {
-    canvasSize = prompt("Enter size of canvas");
+    draw.classList.remove('highlight');
+    container.classList.remove('cell');
+    canvasSize = prompt("Enter size of canvas (1-100)");
+    if (canvasSize <= 0 || canvasSize > 100) {
+        alert("Invalid number. Enter a number between 1 and 100")
+    } else {
+        for (let i=0; i<(canvasSize**2); i++) { // adds a div to the grid
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            document.querySelector('.container').appendChild(cell);
+        }
+    }
 }
