@@ -12,8 +12,7 @@ draw.forEach((draw) => { //applies function to each node in list
     });
 });
 function resetCanvas () {
-    draw.classList.remove('highlight');
-    container.classList.remove('cell');
+    //TODO: need to reset canvas here
     canvasSize = prompt("Enter size of canvas (1-100)");
     if (canvasSize <= 0 || canvasSize > 100) {
         alert("Invalid number. Enter a number between 1 and 100")
@@ -27,4 +26,4 @@ function resetCanvas () {
     }
 }
 const reset = document.querySelector('.btn');
-btn.addEventListener('click', resetCanvas);
+reset.addEventListener('click', resetCanvas);
