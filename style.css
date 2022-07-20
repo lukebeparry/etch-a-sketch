@@ -1,15 +1,25 @@
+:root {
+    --canvas: '';
+}
+
 body {
     display: flex;
     justify-content: center;
 }
 
+.btn {
+    padding: 10px;
+    margin: 50px;
+    display: inline-block;
+}
+
 .container {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(var(--canvas), auto);
 }
 
 .cell {
-    padding: 50px;
+    padding: 10px;
     border: 1px solid;
 }
 
