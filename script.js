@@ -1,3 +1,22 @@
+function resetCanvas () {
+    const reset = document.querySelectorAll('.cell');
+    reset.forEach((reset) => {
+        reset.classList.remove('highlight');
+        document.querySelector('.container').removeChild(reset);
+    });
+    canvasSize = prompt("Enter size of canvas (1-100)");
+    if (canvasSize <= 0 || canvasSize > 100) {
+        alert("Invalid number. Enter a number between 1 and 100")
+    } else {
+        for (let i=0; i<(canvasSize**2); i++) { // adds a div to the grid
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            document.querySelector('.container').appendChild(cell);
+            document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
+        }
+    }
+}
+
 let canvasSize = 16;
 document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
 for (let i=0; i<(canvasSize**2); i++) { // adds a div to the grid
@@ -11,19 +30,5 @@ draw.forEach((draw) => { //applies function to each node in list
         draw.classList.add('highlight'); //adds highlight class to existing div
     });
 });
-function resetCanvas () {
-    //TODO: need to reset canvas here
-    canvasSize = prompt("Enter size of canvas (1-100)");
-    if (canvasSize <= 0 || canvasSize > 100) {
-        alert("Invalid number. Enter a number between 1 and 100")
-    } else {
-        for (let i=0; i<(canvasSize**2); i++) { // adds a div to the grid
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            document.querySelector('.container').appendChild(cell);
-            document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
-        }
-    }
-}
 const reset = document.querySelector('.btn');
 reset.addEventListener('click', resetCanvas);
