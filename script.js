@@ -15,6 +15,12 @@ function resetCanvas () {
             document.documentElement.style.setProperty(`--canvas`, `${canvasSize}`);
         }
     }
+    const draw = document.querySelectorAll('.cell'); 
+    draw.forEach((draw) => { //applies function to each node in list
+    draw.addEventListener('mouseover', () => {
+        draw.classList.add('highlight'); //adds highlight class to existing div
+    });
+});
 }
 
 let canvasSize = 16;
